@@ -1,0 +1,82 @@
+@import "tailwindcss";
+
+@theme {
+  --color-ink: #0b1020;
+  --color-panel: #141b34;
+  --color-panel2: #1c2650;
+  --color-line: #2b3668;
+  --color-gold: #f5c451;
+  --color-live: #ef4444;
+  --font-display: "Avenir Next", "Segoe UI", system-ui, -apple-system, sans-serif;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--color-ink);
+  color: #eef1fb;
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  overscroll-behavior: none;
+  -webkit-tap-highlight-color: transparent;
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+input,
+textarea {
+  -webkit-user-select: text;
+  user-select: text;
+}
+
+button {
+  touch-action: manipulation;
+  cursor: pointer;
+}
+
+button:disabled {
+  cursor: not-allowed;
+}
+
+input[type="range"] {
+  accent-color: var(--color-gold);
+  width: 100%;
+}
+
+.safe-bottom {
+  padding-bottom: max(0.75rem, env(safe-area-inset-bottom));
+}
+
+.safe-top {
+  padding-top: max(0.75rem, env(safe-area-inset-top));
+}
+
+@keyframes pulse-ring {
+  0% {
+    box-shadow: 0 0 0 0 rgb(245 196 81 / 0.55);
+  }
+  100% {
+    box-shadow: 0 0 0 16px rgb(245 196 81 / 0);
+  }
+}
+
+.playing-pulse {
+  animation: pulse-ring 1.4s ease-out infinite;
+}
+
+@media print {
+  body {
+    background: white;
+    color: black;
+  }
+}
+
+@media print {
+  .no-print {
+    display: none !important;
+  }
+}
